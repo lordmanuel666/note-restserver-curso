@@ -7,38 +7,38 @@ const bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(require('./routes/usuario'));
+app.use(require('./routes/index'));
 
 app.get('/', function(req, res) {
     res.json('Hello World!')
 })
 
-app.post('/usuarios', function(req, res) {
-    let body = req.body;
+// app.post('/usuarios', function(req, res) {
+//     let body = req.body;
 
-    if (body.nombre === undefined) {
-        res.status(400).json({
-            ok: false,
-            mensaje: 'el nombre es necesario'
-        })
-    } else {
-        res.json({
-            body
-        })
-    }
+//     if (body.nombre === undefined) {
+//         res.status(400).json({
+//             ok: false,
+//             mensaje: 'el nombre es necesario'
+//         })
+//     } else {
+//         res.json({
+//             body
+//         })
+//     }
 
-})
+// })
 
-app.put('/usuarios/:id', function(req, res) {
-    let id = req.params.id;
-    res.json({
-        id
-    });
-})
+// app.put('/usuarios/:id', function(req, res) {
+//     let id = req.params.id;
+//     res.json({
+//         id
+//     });
+// })
 
-app.delete('/usuarios', function(req, res) {
-    res.json('Hello delete!')
-})
+// app.delete('/usuarios', function(req, res) {
+//     res.json('Hello delete!')
+// })
 
 
 // mongoose.connect('mongodb://localhost:27017/Cafe', (err, res) => {
